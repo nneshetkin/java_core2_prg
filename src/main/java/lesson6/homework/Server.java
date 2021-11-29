@@ -33,11 +33,13 @@ public class Server {
             new Thread(() -> {
                 try {
                     int i = 1;
-                    System.out.println("Введи сообщение для клиента");
-                    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                    String strForClient = br.readLine();
-                    out.writeUTF("Сервер: " + "сообщение" + i + " :" + strForClient);
-                    i++;
+                    while (true) {
+                        System.out.println("Введи сообщение для клиента");
+                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                        String strForClient = br.readLine();
+                        out.writeUTF("Сервер: " + "сообщение" + i + " :" + strForClient);
+                        i++;
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
